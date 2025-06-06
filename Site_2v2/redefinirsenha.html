@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel = "website icon" type=" png" href = "./img/logoteste.png">
+    <title>Esqueci minha senha</title>
+</head>
+
+
+
+<body class="fundo-login"> <div class="overlay-login"></div>
+    <header>
+        <img src="./img/logoteste.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html" id="aba">Home</a></li>
+                <li><a href="consultas.html" id="aba">Consultas</a></li>
+                <li><a href="contatos.html" id="aba">Contatos</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="login-container">
+        <div class="login">
+            <h2>Redefinição de senha</h2>
+            <input type="email" class="input-email" name="Campoemail" placeholder="Email">
+            <button class="entrar-btn"><a href="#popupsenha">Enviar</a></button>
+            <div class="cadastro-container">
+                <span class="textocadastro">Ainda não tem uma conta?</span>
+                <a href="sign.html" class="cadastro-btn">Cadastre-se</a>
+            </div>
+            <div class="cadastro-container">
+                <a href="login.html" class="voltar-btn">Voltar para Login</a>
+            </div>
+        </div>
+    </div>
+    <div id="popupsenha" class="popup">
+        <a href="#" class="popup-close">&times;</a>
+        <h3>Email de redefinição enviado com sucesso!</h3>
+        <p>Se o email foi inserido corretamente, verifique a caixa de entrada e Spam para encontrá-lo</p>
+        <img src="./img/email.gif" alt="GIF email" class="gifemail">
+    </div>
+</body>
+</html>

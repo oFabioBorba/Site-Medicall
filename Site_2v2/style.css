@@ -1,0 +1,718 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+*body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+body.fundo-especial {
+    background-image: url('./img/backgrond\ bom.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+    min-width: 100vw;
+    min-height: 100vh;
+    position: relative; 
+
+}
+
+/* criação do overlay pra gente conseguir inserir a opacidade apenas no background */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); 
+    z-index: -1; /* manter com o -1 para que ele fique atras do conteúdo */
+}
+
+
+header {
+    background-color: #008cba;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+  
+nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 8px 10px;
+    transition: all 0.1s ease-in-out;
+}
+#aba {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 8px 10px;
+  transition: color 0.2s ease-in-out;
+}
+
+#aba::before,
+#aba::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+#aba::before {
+  left: 50%;
+}
+
+#aba::after {
+  right: 50%;
+}
+
+#aba:hover::before,
+#aba:hover::after {
+  width: 50%;
+}
+.login-btn {
+    background-color: white;
+    color: #008cba;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+  }
+  
+.login-btn:hover {
+    background-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.banner {
+    background: url('banner.jpg') no-repeat center center/cover;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.banner-content {
+    background: rgba(0, 140, 186, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: rgba(179, 179, 179, 0.389);
+}
+
+.BotaoConsulta {
+    background: white;
+    color: #008cba;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 17px;
+    font-size: 16px;
+    margin: 10px;
+    border: 2px solid white;
+    transition: transform 0.1s ease-in-out;
+}
+.BotaoConsulta:hover{
+    background-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.Especialista {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+.Especialista h2{
+    padding: 10px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card_MED {
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    color: black;
+}
+.card_MED{
+    color: #008cba;
+
+}
+
+.card_MED img {
+    width: 100%;
+    border-radius: 10px;
+    height: 81%;
+}
+
+.card h3 {      
+    margin: 12px 0 10px;
+    background-color: rgb(247, 246, 246);
+}
+[popover] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px 35px;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    background-color: #fefefe;
+    color: #222;
+    max-width: 420px;
+    width: 90%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+    border: 1px solid #ccc;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+  
+[popover].pop {
+    opacity: 1;
+    pointer-events: auto;
+}
+  
+[popover] h3 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+    letter-spacing: 0.02em;
+}
+  
+[popover] p {
+    margin-bottom: 14px;
+    line-height: 1.55;
+    font-size: 16px;
+    color: #444;
+}
+  
+[popover] strong {
+    font-weight: 600;
+    color: #555;
+}
+  
+.popBTN {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.35);
+    user-select: none;
+  }
+  
+.popBTN:hover {
+    background-color: #217dbb;
+    box-shadow: 0 6px 18px rgba(33, 125, 187, 0.5);
+    transform: translateY(-2px);
+  }
+  
+.BotaoMED {
+    background-color: #217dbb;
+    color: #ecf0f1;
+    border: 2px solid #008cba;
+    padding: 10px 26px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 6px 8px;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+  
+.BotaoMED:hover {
+    background-color: transparent;
+    color: #008cba;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+  
+  
+  
+
+/*contatos*/
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cab h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #008cba;
+    text-transform: uppercase;
+}
+
+.contatos {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.contatos ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contatos li {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease; 
+}
+
+.contatos li:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.foto img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.detalhes {
+    flex: 1;
+}
+
+.nome {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.telefone, .social {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.telefone i, .social i {
+    margin-right: 10px;
+}
+
+/* responsividade */
+@media (max-width: 768px) {
+    .info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .foto img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .nome {
+        font-size: 18px;
+    }
+
+    .telefone, .social {
+        font-size: 14px;
+    }
+}
+
+/*login*/
+
+
+body.fundo-login{
+    background-image: url('./img/background-white.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+    min-width: 100vw;
+    min-height: 100vh; 
+}
+
+
+.overlay-login {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1; 
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.login {
+    background: white; 
+    padding: 80px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+    width: 400px;
+    text-align: center;
+}
+
+.login h2 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+.input-email, .input-nome, .input-senha, .input-confirmarsenha {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+.esqueci-btn{
+    display: block;
+    margin-right: 100px;
+    text-decoration: none;
+    color: #3498db;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.cadastro-btn{
+    text-decoration: none;
+    color: #3498db;
+    font-size: 14px;
+    margin-left: 0px
+}
+
+.textocadastro{
+    margin-right: 7px;
+    font-size: 14px;
+}
+
+.esqueci-btn:hover, .cadastro-btn:hover {
+    color: #1f669b;
+}
+
+.entrar-btn{
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+    padding: 15px;
+    transition: transform 0.2s ease-in-out; 
+    font-size: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.entrar-btn:hover {
+    transform: scale(1.1); 
+    box-shadow: 0px 4px 15px rgba(0, 140, 186, 0.4);
+}
+
+
+
+/* Agendamento de consulta */
+
+.agendamento-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.agendamento-container h2 {
+    text-align: center;
+    color: #008cba;
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.agendamento-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group select,
+.form-group input[type="date"] {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.form-group select:focus,
+.form-group input[type="date"]:focus {
+    border-color: #008cba;
+    outline: none;
+}
+
+.agendar-btn {
+    padding: 15px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #008cba;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.agendar-btn:hover {
+    background-color: #005f8a;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .agendamento-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .agendamento-container h2 {
+        font-size: 24px;
+    }
+
+    .form-group select,
+    .form-group input[type="date"] {
+        font-size: 14px;
+    }
+
+    .agendar-btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+/* redefinir senha */
+
+button.entrar-btn a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.voltar-btn {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: -180px;
+    text-decoration: none; 
+    color: #3498db;   
+    font-size: 14px;    
+}
+
+.voltar-btn:hover {
+    color: #1f669b;
+}
+
+
+
+#popupsenha {
+    display: none;
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgb(250, 244, 244);
+    color: black;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    z-index: 9999;
+    width: 380px;
+    text-align: center;
+}
+
+#popupsenha:target {
+    display: block;
+    opacity: 1;
+}
+
+.popup-close {
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+    padding: 5px;
+}
+
+button.entrar-btn a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.gifemail{
+    width: 100px;    
+}
+
+/*pagina consulta*/
+
+.consultaContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.consultaH1 {
+    color: #008cba;
+    margin-bottom: 30px;
+    font-size: 32px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.cardConsulta {
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.cardConsulta i {
+    font-size: 64px;
+    color: #bdc3c7;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.cardConsulta h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.cardConsulta p {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-size: 16px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnAgendar {
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #008cba;
+    border: 2px solid #008cba;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+
+.btnAgendar:hover {
+    background-color: transparent;
+    color: #008cba;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}

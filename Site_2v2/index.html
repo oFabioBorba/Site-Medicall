@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agende suas consultas com nossos profissionais de medicina em suas áreas">
+    <title>Consulta Médica - Medicall</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="website icon" type="png" href="img/logoteste.png">
+      
+</head>
+<body class="fundo-especial">
+    <!-- Camada escura com opacidade. -->
+    <div class="overlay"></div>
+
+    <header>
+        <img src="./img/logoteste.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html" id="aba">Home</a></li>
+                <li><a href="consultas.html" id="aba">Consultas</a></li>
+                <li><a href="contatos.html" id="aba">Contatos</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Encontre um Doutor especialista</h1>
+            <a href="agendar.html"><button class="BotaoConsulta">Agende sua Consulta</button></a>
+        </div>
+    </section>
+
+    <section class="Especialista">
+        <h2>Especialistas</h2>
+        <div class="cards">
+            <div class="card_MED">
+                <img src="./img/doutor.png" alt="Dr. Ricardo">
+                <h3>Doutor Ricardo Jorge</h3>
+                <button class="BotaoMED" onclick="abrirPopup('evandro-popup')">Verificar</button>
+            </div>
+            <div class="card_MED">
+                <img src="./img/doutor2.jpeg" alt="Dr. Evandro">
+                <h3>Doutor Evandro Rui Barbosa Pereira</h3>
+                <button class="BotaoMED" onclick="abrirPopup('ricardo-popup')">Verificar</button>
+            </div>
+            <div class="card_MED">
+                <img src="./img/doutora.webp" alt="Dra. Flavia">
+                <h3>Doutora Flavia Peres</h3>
+                <button class="BotaoMED" onclick="abrirPopup('flavia-popup')">Verificar</button>
+            </div>
+        </div>
+        
+        <div id="ricardo-popup" popover="manual"r><h3>Dr. Ricardo Jorge</h3>
+            <p><strong>Especialidade:</strong> Oftalmologia</p>
+            <p><strong>Dias de Atendimento:</strong> Segunda a Sexta</p>
+            <p><strong>Horário:</strong> 08:00 - 18:00</p>
+            <p><strong>Valor da Consulta:</strong> R$ 350,00</p>
+            <p><strong>Convênios Aceitos:</strong> Amil, Unimed, SulAmérica, Hapvida e NotreDame Intermédica.</p>
+            <button class="popBTN" onclick="fecharPopup('ricardo-popup')">Fechar</button>
+        </div>
+
+        <div id="evandro-popup" popover="manual" class="custom-pop">
+            <h3>Dr. Evandro Rui Barbosa Pereira</h3>
+            <p><strong>Especialidade:</strong> Radiografia e Cardiologia</p>
+            <p><strong>Dias de Atendimento:</strong> Terça, Quinta e Sábado</p>
+            <p><strong>Horário:</strong> 10:00 - 19:00</p>
+            <p><strong>Valor da Consulta:</strong> R$ 280,00</p>
+            <p><strong>Convênios Aceitos:</strong> Amil, Unimed, SulAmérica, Hapvida e NotreDame Intermédica.</p>
+            <button class="popBTN" onclick="fecharPopup('evandro-popup')">Fechar</button>
+
+        </div>
+          
+        <div id="flavia-popup" popover="manual"><h3>Dra. Flavia Peres</h3>
+            <p><strong>Especialidade:</strong> Ginecologia e Dermatologia</p>
+            <p><strong>Dias de Atendimento:</strong> Segunda a Sexta</p>
+            <p><strong>Horário:</strong> 07:00 - 16:00</p>
+            <p><strong>Valor da Consulta:</strong> R$ 250,00</p>
+            <p><strong>Convênios Aceitos:</strong> Amil, Unimed, SulAmérica, Hapvida e NotreDame Intermédica.</p>
+            <button class="popBTN" onclick="fecharPopup('flavia-popup')">Fechar</button>
+        </div>
+    </section>
+
+    <script>
+        function abrirPopup(id) {
+          const popup = document.getElementById(id);
+          popup.showPopover();
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              popup.classList.add("pop");
+            });
+          });
+        }
+      
+        function fecharPopup(id) {
+          const popup = document.getElementById(id);
+          popup.classList.remove("pop");
+          setTimeout(() => {
+            popup.hidePopover();
+          }, 300);
+        }
+    </script>
+      
+      
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Consulta</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="website icon" type="png" href="img/logoteste.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <img src="./img/logoteste.png" alt="Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html" id="aba">Home</a></li>
+                <li><a href="consultas.html" id="aba">Consultas</a></li>
+                <li><a href="contatos.html" id="aba">Contatos</a></li>
+                <li><a href="login.html" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="agendamento-container">
+        <h2>Agendamento de Consulta</h2>
+        <form class="agendamento-form">
+            <div class="form-group">
+                <label for="especialidades">Selecione uma especialidade:</label>
+                <select id="especialidades" name="especialidades" required>
+                    <option value="" selected disabled>Escolha uma especialidade</option>
+                    <option value="Oftalmologista">Oftalmologista - Doutor Ricardo</option>
+                    <option value="Dermatologista">Dermatologista - Doutora Flavia</option>
+                    <option value="Radiografia Periapical">Radiografia - Doutor Evandro</option>
+                    <option value="Documentação Ortodôntica">Cardiologia - Doutor Evandro</option>
+                    <option value="Ginecologista">Ginecologista - Doutora Flavia</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="planos">Selecione o plano de saúde:</label>
+                <select id="planos" name="planos"required>
+                    <option value="" selected disabled>Escolha um plano de saúde</option>
+                    <option value="Notredame">NotreDame Intermédica</option>
+                    <option value="Hapvida">Hapvida</option>
+                    <option value="Sulamerica">SulAmérica</option>
+                    <option value="Unimed">Unimed</option>
+                    <option value="Amil">Amil</option>
+                    <option value="Sem nada">Não tenho um plano de saúde</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dataAgendamento">Escolha a data:</label>
+                <input type="date" id="dataAgendamento" name="dataAgendamento">
+            </div>
+
+            <button type="submit" class="agendar-btn">Agendar Consulta</button>
+        </form>
+    </div>
+    <script src="scriptagendar.js"></script>
+</body>
+</html>
