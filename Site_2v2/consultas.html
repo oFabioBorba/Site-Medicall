@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Consultas</title>
     <link rel="stylesheet" href="style.css">
-    <link rel = "website icon" type="png" href="img/logoteste.png">
-    <title>Consultas marcadas</title>
+    <link rel="website icon" type="png" href="img/logoteste.png">
 </head>
 <body>
     <header>
@@ -19,13 +19,32 @@
             </ul>
         </nav>
     </header>
+
     <div class="consultaContainer">
         <h1 class="consultaH1">Minhas Consultas</h1>
-        
-        <div class="cardConsulta">
-            <h2>Nenhuma consulta agendada</h2>
-            <p>Você ainda não possui consultas marcadas. Agende sua primeira consulta clicando no botão abaixo.</p>
-            <a href="agendar.html" class="btnAgendar">Agendar Consulta</a>
+
+        <div class="filtro-consulta">
+            <input type="text" id="pesquisaConsulta" placeholder="Buscar por nome ou data...">
         </div>
+
+        <div id="listaConsultas" class="lista-consultas">
+           
+
+        </div>
+
+        <div class="agendar-consulta">
+            <p>Deseja agendar alguma consulta?</p>
+            <a href="agendar.html" class="btn-agendar">Agendar Consulta</a>
+        </div>
+    </div>
+
+    <script>
+        const campoPesquisa = document.getElementById("pesquisaConsulta");
+
+        campoPesquisa.addEventListener("input", () => {
+            const lista = document.getElementById("listaConsultas");
+            lista.innerHTML = "<p>Nenhuma consulta encontrada.</p>";
+        });
+    </script>
 </body>
 </html>
