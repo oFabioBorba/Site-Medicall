@@ -1,75 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <header>
-        <img src="./img/logoteste.png" alt="Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="feedback.html" id="aba">Feedback</a></li>
-                <li><a href="index.html" id="aba">Home</a></li>
-                <li><a href="consultas.html" id="aba">Consultas</a></li>
-                <li><a href="contatos.html" id="aba">Contatos</a></li>
-                <li><a href="login.html" class="login-btn">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <img src="./img/logoteste.png" alt="Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html" id="aba">Home</a></li>
+        <li><a href="feedback.html" id="aba">Feedback</a></li>
+        <li><a href="consultas.html" id="aba">Consultas</a></li>
+        <li><a href="contatos.html" id="aba">Contatos</a></li>
+        <li><a href="login.html" class="login-btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="feedback-container">
-        <h2>Deixe seu Feedback</h2>
-        <form id="feedbackForm">
-            <label for="nome">Seu nome:</label>
-            <input type="text" id="nome" name="nome">
+  <div class="feedback-container">
+    <h2>Deixe seu Feedback</h2>
+    <form id="feedbackForm" novalidate>
+      <label for="nome">Seu nome:</label>
+      <input type="text" id="nome" name="nome" required />
 
-            <label for="profissional">Escolha o profissional:</label>
-            <select id="profissional" name="profissional" required>
-                <option value="">-- Selecione --</option>
-                <option value="ricardo">Doutor Ricardo Jorge</option>
-                <option value="evandro">Doutor Evandro Rui Barbosa Pereira</option>
-                <option value="flavia">Doutora Flavia Peres</option>
-            </select>
+      <label for="profissional">Escolha o profissional:</label>
+      <select id="profissional" name="profissional" required>
+        <option value="">-- Selecione --</option>
+        <option value="ricardo">Doutor Ricardo Jorge</option>
+        <option value="evandro">Doutor Evandro Rui Barbosa Pereira</option>
+        <option value="flavia">Doutora Flavia Peres</option>
+      </select>
 
-            <label for="siteNota">Nota para o site:</label>
-            <select id="siteNota" name="siteNota">
-                <option value="5">5 - Excelente</option>
-                <option value="4">4 - Muito bom</option>
-                <option value="3">3 - Bom</option>
-                <option value="2">2 - Regular</option>
-                <option value="1">1 - Ruim</option>
-            </select>
+      <label for="siteNota">Nota para o site:</label>
+      <select id="siteNota" name="siteNota" required>
+        <option value="">-- Selecione --</option>
+        <option value="5">5 - Excelente</option>
+        <option value="4">4 - Muito bom</option>
+        <option value="3">3 - Bom</option>
+        <option value="2">2 - Regular</option>
+        <option value="1">1 - Ruim</option>
+      </select>
 
-            <label for="medicoNota">Nota para os médicos:</label>
-            <select id="medicoNota" name="medicoNota">
-                <option value="5">5 - Excelente</option>
-                <option value="4">4 - Muito bom</option>
-                <option value="3">3 - Bom</option>
-                <option value="2">2 - Regular</option>
-                <option value="1">1 - Ruim</option>
-            </select>
+      <label for="medicoNota">Nota para os médicos:</label>
+      <select id="medicoNota" name="medicoNota" required>
+        <option value="">-- Selecione --</option>
+        <option value="5">5 - Excelente</option>
+        <option value="4">4 - Muito bom</option>
+        <option value="3">3 - Bom</option>
+        <option value="2">2 - Regular</option>
+        <option value="1">1 - Ruim</option>
+      </select>
 
-            <label for="comentario">Comentário:</label>
-            <textarea id="comentario" name="comentario" rows="4" placeholder="Digite aqui seu comentário..."></textarea>
+      <label for="comentario">Comentário:</label>
+      <textarea id="comentario" name="comentario" rows="4" placeholder="Digite aqui seu comentário..." required></textarea>
 
-            <button type="submit">Enviar Feedback</button>
-        </form>
-        <p class="obrigado" id="obrigadoMsg">Obrigado pelo seu feedback!</p>
-    </div>
+      <button type="submit" id="enviarBtn">Enviar Feedback</button>
+    </form>
 
-    <script>
-        const form = document.getElementById('feedbackForm');
-        const obrigadoMsg = document.getElementById('obrigadoMsg');
+    <p class="obrigado" id="obrigadoMsg">Obrigado pelo seu feedback!</p>
+    <p id="erroMsg" style="color: red; display: none; margin-top: 10px;">⚠️ Por favor, preencha todos os campos obrigatórios antes de enviar.</p>
+  </div>
 
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            form.reset();
-            obrigadoMsg.style.display = 'block';
-        });
-    </script>
+
+    <script src="scriptfeedback.js"></script>
+
 </body>
 </html>
