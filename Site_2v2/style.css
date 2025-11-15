@@ -121,7 +121,7 @@ nav ul li a {
 
 .banner {
     background: url('banner.jpg') no-repeat center center/cover;
-    height: 300px;
+    height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,7 +159,7 @@ nav ul li a {
 
 .Especialista {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     color: white;
 }
 .Especialista h2{
@@ -170,6 +170,8 @@ nav ul li a {
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
+
 }
 
 .card_MED {
@@ -177,7 +179,7 @@ nav ul li a {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    width: 28%;
     color: black;
 }
 .card_MED{

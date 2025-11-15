@@ -1,0 +1,24 @@
+.video-tutorial {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffffd0;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.video-tutorial h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #222;
+}
+
+.video-tutorial video {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    outline: none;
+}
